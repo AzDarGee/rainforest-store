@@ -1,7 +1,11 @@
 <h1>Products</h1>
 <h3><%= link_to 'Add Product', new_product_path %></h3>
+<ol>
   <% @products.each do |p| %>
-    <%= link_to p.name, "/products/#{p.id}" %>
-    <%= link_to 'Edit', edit_product_path(p) %>
-    <%= link_to 'Remove', p, :method => :delete %>
+    <li>
+      <%= link_to p.name, "/products/#{p.id}" %>
+      <%= link_to 'Edit', edit_product_path(p) %>
+      <%= link_to 'Remove', p, :method => :delete %>
+    </li>
   <% end %>
+</ol>
