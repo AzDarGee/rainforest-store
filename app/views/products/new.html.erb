@@ -1,2 +1,18 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<h1>Add Product</h1>
+  <%= link_to "Back", products_url %>
+
+  <!--Using Form Helpers in Rails -->
+  <%= form_for @product do |f| %>
+    <p>
+      <%= f.text_field "name", placeholder: "Name" %>
+    </p>
+    <p>
+        <%= f.text_field "description", placeholder: "description" %>
+    </p>
+    <p>
+        <%= f.text_field "price_in_cents", placeholder: "Price in cents" %>
+    </p>
+    <p>
+      <%= f.submit "Add" %>
+    </p>
+  <% end %>

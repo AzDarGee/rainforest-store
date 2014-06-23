@@ -1,0 +1,14 @@
+<%= form_for @product do |f| %>
+  <p>
+    <%= f.text_field "name", placeholder: "Name" %>
+  </p>
+  <p>
+      <%= f.text_field "description", placeholder: "description" %>
+  </p>
+  <p>
+      <%= f.text_field "price_in_cents", placeholder: "Price in cents" %>
+  </p>
+  <p>
+    <%= f.submit "Add" %>
+  </p>
+ <% end %>
