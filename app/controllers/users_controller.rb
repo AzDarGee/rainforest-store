@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to products_url, :note => "Logged In!"
+      redirect_to products_url, :note => "Signed Up!"
     else
       render :new
     end
