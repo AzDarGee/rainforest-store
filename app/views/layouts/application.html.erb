@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RainforestStore</title>
+  <title>ZenForest</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="logo center">
+    <h1>ZenForest</h1>
+  </div>
   <!-- Alerts/Notices -->
   <% if flash[:notice] %>
     <p id="notice"><%= flash[:notice] %></p>

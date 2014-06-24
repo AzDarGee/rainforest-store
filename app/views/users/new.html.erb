@@ -1,6 +1,7 @@
 <h1>Sign Up</h1>
 
 <%= form_for @user do |f| %>
+  <!-- Error messages if user fills in form wrong.. -->
   <% if @user.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
