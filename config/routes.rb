@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   resources :products do
+    get :search, on: :collection
     resources :reviews, :only => [:show,:create,:destroy]
   end
 

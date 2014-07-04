@@ -1,12 +1,7 @@
 class ProductsController < ApplicationController
   before_filter :ensure_logged_in, :only => [:show]
   def index
-    @products = if params[:search]
-      Product.where("name LIKE ?", "%#{params[:search]}%")
-    else
-      Product.all
-    end
-
+    @products = Product.search(params[:search])
     if request.xhr?
       render @products
     end
@@ -43,6 +38,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to products_path
+  end
+  def search
+    @products = Product.search(params[:search])
+    render @products
   end
   private
   def product_params
