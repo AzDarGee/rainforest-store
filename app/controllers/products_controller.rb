@@ -2,9 +2,7 @@ class ProductsController < ApplicationController
   before_filter :ensure_logged_in, :only => [:show]
   def index
     @products = Product.search(params[:search])
-    if request.xhr?
-      render @products
-    end
+
   end
   def show
     @product = Product.find(params[:id])

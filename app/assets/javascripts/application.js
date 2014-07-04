@@ -23,19 +23,21 @@ function display_search_results() {
     };
   };
 
+//AJAX should be put in document ready function
 $(document).ready(function() {
-  // Get the form we want to work with
-  var form = document.getElementById('search-form');
-  // Add a listener to the submit button
-  form.addEventListener('submit', function(event) {
-    // Prevent from resfreshing the page
+  $('#search-form').submit(function(event) {
     event.preventDefault();
-    // Save the search value
-    var searchValue = document.getElementById('search').value;
-    // Make a request
-    var xhr = new XMLHttpRequest();
-    xhr.onload = display_search_results;
-    xhr.open('GET','/products/search?search=' + searchValue, true);
-    xhr.send();
+    var searchValue = $('#search').val();
+
+    $.ajax({
+      url: '/products/search?search=' + searchValue,
+      type: 'GET',
+      dataType: 'html'
+    }).done(function(data) {
+      $('#products').html(data);
+    }).error(function() {
+      alert("error!");
+    });
+
   });
 });
