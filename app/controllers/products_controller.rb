@@ -1,7 +1,11 @@
 class ProductsController < ApplicationController
-  before_filter :ensure_logged_in, :only => [:show]
+  before_action :ensure_logged_in, :only => [:show]
   def index
-    @products = Product.all
+    @products = if params[:search]
+      Product.where("LOWER(name LIKE ?", "%#{params[:search].downcase}%")
+    else
+      Product.all
+    end
   end
   def show
     @product = Product.find(params[:id])
