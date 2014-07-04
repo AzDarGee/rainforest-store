@@ -7,8 +7,8 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to products_url, :notice => "Signed Up!"
     else
-      render :new
       flash.now[:alert] = 'Couldn\'t sign up, try again and submit!'
+      render :new
     end
   end
   private

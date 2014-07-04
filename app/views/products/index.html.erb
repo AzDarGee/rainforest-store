@@ -1,13 +1,12 @@
 <h1>Products</h1>
+
+<%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
+
 <h3><%= link_to 'Add Product', new_product_path %></h3>
-<input type="text" placeholder="Search" />
-<ol>
-  <% @products.each do |p| %>
-    <li>
-      <%= link_to p.name, "/products/#{p.id}" %>
-      - $<%= p.formatted_price %> |
-      <%= link_to 'Edit', edit_product_path(p) %>
-      <%= link_to 'Remove', p, :method => :delete %>
-    </li>
-  <% end %>
+
+<ol id="products">
+  <%= render @products %>
 </ol>

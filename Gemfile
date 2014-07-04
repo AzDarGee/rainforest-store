@@ -12,3 +12,4 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'faker'
+

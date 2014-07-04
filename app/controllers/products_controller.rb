@@ -1,11 +1,7 @@
 class ProductsController < ApplicationController
   before_action :ensure_logged_in, :only => [:show]
   def index
-    @products = if params[:search]
-      Product.where("LOWER(name LIKE ?", "%#{params[:search].downcase}%")
-    else
-      Product.all
-    end
+    @products = Product.search(params[:search])
   end
   def show
     @product = Product.find(params[:id])
@@ -39,6 +35,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to products_path
+  end
+  def search
+    @products = Product.search(params[:search])
+    render @products
   end
   private
   def product_params
