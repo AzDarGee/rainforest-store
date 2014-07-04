@@ -15,29 +15,15 @@
 //= require turbolinks
 //= require_tree .
 
-function display_search_results() {
-    //readyState === 4 means that the asynchronous request completed successfully
-    if(this.readyState === 4) {
-      console.log(this);
-      document.getElementById('products').innerHTML = this.responseText;
-    };
-  };
-
-//AJAX should be put in document ready function
 $(document).ready(function() {
   $('#search-form').submit(function(event) {
     event.preventDefault();
     var searchValue = $('#search').val();
-
-    $.ajax({
-      url: '/products/search?search=' + searchValue,
-      type: 'GET',
-      dataType: 'html'
-    }).done(function(data) {
-      $('#products').html(data);
-    }).error(function() {
-      alert("error!");
-    });
-
+     $.get('/products/search?search=' + searchValue)
+      .done(function(data) {
+        $('#products').html(data);
+      }).error(function() {
+        alert('error!');
+      });
   });
 });
