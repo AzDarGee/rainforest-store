@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'kaminari'
+gem 'faker'
 
 group :development do
   gem 'guard'
@@ -18,3 +19,7 @@ group :development do
   gem "rack-livereload"
   gem 'spring'
 end
+
+
+
+
