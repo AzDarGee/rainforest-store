@@ -3,6 +3,7 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function() {
+  // AJAX Search
   $("#search-form").submit(function(event) {
     var searchValue = $("#search").val();;
     event.preventDefault();
@@ -12,4 +13,17 @@ $(document).ready(function() {
       alert("error!");
     });
   });
+
+  // Infinate Scroll
+  if ($('.pagination').length) {
+    $(window).scroll(function() {
+      var url = $('.pagination span.next').children().attr('href');
+      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        $('.pagination').text("Fetching more products...");
+        return $.getScript(url);
+      }
+    });
+  }
+
+
 });
