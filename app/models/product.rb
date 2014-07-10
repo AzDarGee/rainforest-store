@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   validates :description, :name, :presence => true
   validates :price_in_cents, :numericality => {:only_integer => true}
+
   has_many :reviews
   has_many :users, :through => :reviews
 
@@ -11,7 +12,7 @@ class Product < ActiveRecord::Base
   end
   def self.search(search)
     if search
-      where('name LIKE ?', "%#{search}%")
+      where('LOWER(name) LIKE LOWER(?)', "%#{search}%")
     else
       all
     end

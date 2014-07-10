@@ -15,15 +15,4 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
-  $('#search-form').submit(function(event) {
-    event.preventDefault();
-    var searchValue = $('#search').val();
-     $.get('/products/search?search=' + searchValue)
-      .done(function(data) {
-        $('#products').html(data);
-      }).error(function() {
-        alert('error!');
-      });
-  });
-});
+
