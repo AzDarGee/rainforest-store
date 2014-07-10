@@ -7,6 +7,14 @@
 
 <h3><%= link_to 'Add Product', new_product_path %></h3>
 
+<!-- renders a helpful message with numbers of displayed vs. total entries -->
+<h1>Products <small><%= page_entries_info @products %></small></h1>
+
+<hr/>
+
 <ol id="products">
   <%= render @products %>
 </ol>
+
+
+<%= paginate @products %>

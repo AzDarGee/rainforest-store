@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_filter :ensure_logged_in, :only => [:show]
   def index
-    @products = Product.search(params[:search])
+    @products = Product.search(params[:search]).order('products.created_at DESC').page(params[:page])
   end
   def show
     @product = Product.find(params[:id])
