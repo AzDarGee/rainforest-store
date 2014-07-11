@@ -3,6 +3,7 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function() {
+
   // AJAX Search
   $("#search-form").submit(function(event) {
     var searchValue = $("#search").val();;

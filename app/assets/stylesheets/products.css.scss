@@ -1,3 +1,26 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.logo {
+  color: #648BC2;
+}
+
+.center {
+  text-align: center;
+}
+
+.link-splitter {
+  border-right: 1px solid black;
+  padding-right: 8px;
+}
+
+#each-product {
+  padding: 5px;
+}
+
+#each-product:hover {
+  background-color: #cef2ff;
+  border-radius: 10px;
+}
+
