@@ -1,8 +1,8 @@
 <div>
-    <h2>
-      <%= product.formatted_price %>
-      <%= link_to product.name, product_path(product) %>
-    </h2>
+  <h2>
+    <%= product.formatted_price %>
+    <%= link_to product.name, product_path(product) %>
+  </h2>
    <!-- keeps the description to 100 characters or less -->
   <p><%= truncate(product.description, length: 100) %></p>
   <h4>
