@@ -7,7 +7,6 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html
       format.js
-      format.json { render json: @products }
     end
   end
   def show
@@ -25,7 +24,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to products_path(@product)
+      redirect_to root_path
     else
       render :new
     end
