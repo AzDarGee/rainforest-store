@@ -5,11 +5,11 @@
 
   <div class="four columns">
       <%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
-        <%= text_field_tag :search, params[:search], placeholder: 'Search' %>
+        <%= text_field_tag :search, params[:search], placeholder: 'Search Products' %>
         <%= submit_tag "Search", name: nil, type: "hidden" %>
       <% end %>
       <!-- renders a helpful message with numbers of displayed vs. total entries -->
-      <h1>Products <small><%= page_entries_info @products %></small></h1>
+      <h2><small><%= page_entries_info @products %></small></h2>
       <hr/>
       <div id="products">
         <%= render @products %>
