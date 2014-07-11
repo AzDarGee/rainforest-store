@@ -11,7 +11,7 @@ User.destroy_all
 Product.destroy_all
 
 User.create!({
-  name: 'Ash Darji x 100',
+  name: 'Ash Darji',
   email: 'ashdarji1@gmail.com',
   password: 'pass88',
   password_confirmation: 'pass88'

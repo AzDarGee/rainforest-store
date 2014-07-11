@@ -13,4 +13,5 @@ class ApplicationController < ActionController::Base
   		redirect_to new_session_path
   	end
   end
+  helper_method :ensure_logged_in
 end
