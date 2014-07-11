@@ -12,7 +12,8 @@
   </head>
 
   <body>
-    <%= render '/layouts/partials/header' %>
+
+    <%= render :partial => '/layouts/partials/header' %>
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
