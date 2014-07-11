@@ -7,11 +7,7 @@ $(document).ready(function() {
   $("#search-form").submit(function(event) {
     var searchValue = $("#search").val();;
     event.preventDefault();
-    $.get("/products/search?search=" + searchValue).done(function(data) {
-      $("#products").html(data);
-    }).error(function() {
-      alert("error!");
-    });
+    $.getScript("/products/search?search=" + searchValue);
   });
 
   // Infinate Scroll
@@ -21,9 +17,8 @@ $(document).ready(function() {
       if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
         $('.pagination').text("Fetching more products...");
         return $.getScript(url);
-      }
+      };
     });
-  }
-
+  };
 
 });
