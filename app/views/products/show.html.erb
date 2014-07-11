@@ -42,6 +42,17 @@
     </div>
   <% end %>
 
+  <% @product.reviews.each do |review| %>
+    <div class="review">
+      <div class="poster">
+        Posted by <%= review.user.name %> on <%= review.created_at %>
+      </div>
+      <p class="comment">
+        <%= review.comment %>
+      </p>
+    </div>
+  <% end %>
+
 <% else %>
   	<p>Please <%= link_to "log in", new_session_path %> to add a review.</p>
 <% end %>
