@@ -1,32 +1,46 @@
-<%= link_to "Back", root_path %>
-<h1><%= @product.name %></h1>
-<h3><%= @product.description %></h3>
-<h3>$<%= @product.formatted_price %></h3>
+<br />
 
-<% if current_user %>
+<div class="row">
 
-  <div id="review-list">
-    <%= render :partial => 'reviews' %>
+  <div class="four columns">
   </div>
 
-  <h4>New Review</h4>
+  <div class="four columns">
+  <%= link_to "Back", root_path %>
+    <h1><%= @product.name %></h1>
+    <h3><%= @product.description %></h3>
+    <h3>$<%= @product.formatted_price %></h3>
 
-  <%= form_for [@product, @review], :remote => true do |f| %>
-    <div id="review-form-errors">
-      <% if @review.errors.any? %>
-        <%= render 'reviews/errors' %>
+    <% if current_user %>
+
+      <div id="review-list">
+        <%= render :partial => 'reviews' %>
+      </div>
+
+      <h4>New Review</h4>
+
+      <%= form_for [@product, @review], :remote => true do |f| %>
+        <div id="review-form-errors">
+          <% if @review.errors.any? %>
+            <%= render 'reviews/errors' %>
+          <% end %>
+        </div>
+        <div class="field">
+          <%= f.label :comment %><br />
+          <%= f.text_area :comment %>
+        </div>
+        <div class="actions">
+          <%= f.submit class: 'button' %>
+        </div>
       <% end %>
-    </div>
-    <div class="field">
-      <%= f.label :comment %><br />
-      <%= f.text_area :comment %>
-    </div>
-    <div class="actions">
-      <%= f.submit class: 'button' %>
-    </div>
-  <% end %>
 
-<% else %>
-  	<p>Please <%= link_to "log in", new_session_path %> to add a review.</p>
-<% end %>
+    <% else %>
+      <p>Please <%= link_to "log in", new_session_path %> to add a review.</p>
+    <% end %>
+  </div>
+
+  <div class="four columns">
+  </div>
+
+</div>
 
