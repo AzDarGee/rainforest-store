@@ -7,7 +7,11 @@ $(document).ready(function() {
   $("#search-form").submit(function(event) {
     var searchValue = $("#search").val();;
     event.preventDefault();
-    $.getScript("/products/search?search=" + searchValue);
+    $.get("/products/search?search=" + searchValue).done(function(data) {
+      $("#products").html(data);
+    }).error(function() {
+      alert("error!");
+    });
   });
 
   // Infinate Scroll
