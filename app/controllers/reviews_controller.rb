@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_filter :load_product 
+  before_filter :load_product
   before_filter :ensure_logged_in, :only => [:edit, :create, :show, :update, :destroy]
   def show
     @review = Review.find(params[:id])
@@ -7,11 +7,15 @@ class ReviewsController < ApplicationController
   def create
     @review = @product.reviews.build(review_params)
     @review.user_id = current_user.id
-    if @review.save
-      redirect_to products_path, notice: "Review Created!"
-    else
-      flash.now[:notice] = 'Review not posted!'
-      render 'products/show'
+
+    respond_to |format| do
+      if @review.save
+        format.html { redirect_to products_path, notice: "Review Created!" }
+        format.js {}
+      else
+        format.html { render 'products/show', alert: 'Review not posted!' }
+        format.js {}
+      end
     end
   end
   def destroy
