@@ -1,3 +1,9 @@
 $(document).ready(function() {
-  $('#review-list').html("<%= j(render(:partial => 'products/reviews')) %>");
+  <% if @review.errors.any? %>
+    $('#review-form-errors').html("<%= j(render partial: 'errors') %>");
+  <% else %>
+    $('#review-form-errors').html('');
+    $('#review-list').html("<%= j(render(:partial => 'products/reviews')) %>");
+    $('#review_comment').val('');
+  <% end %>
 });

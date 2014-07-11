@@ -1,11 +1,13 @@
 class ProductsController < ApplicationController
   before_action :ensure_logged_in, :only => [:show]
   def index
-    @products = Product.search(params[:search]).order('products.created_at DESC').page(params[:page])
+    @products = Product.search(params[:search])
+    @products = @products.page(params[:page]).order('created_at DESC')
 
     respond_to do |format|
       format.html
       format.js
+      format.json { render json: @products }
     end
   end
   def show
