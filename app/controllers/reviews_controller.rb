@@ -11,10 +11,10 @@ class ReviewsController < ApplicationController
     respond_to |format| do
       if @review.save
         format.html { redirect_to products_path, notice: "Review Created!" }
-        format.js {}
+        format.js {} # This will look for app/views/reviews/create.js.erb
       else
         format.html { render 'products/show', alert: 'Review not posted!' }
-        format.js {}
+        format.js {} # This will look for app/views/reviews/create.js.erb
       end
     end
   end

@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :ensure_logged_in, :only => [:show]
   def index
     @products = Product.search(params[:search]).order('products.created_at DESC').page(params[:page])
+
     respond_to do |format|
       format.html
       format.js
