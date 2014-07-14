@@ -1,17 +1,9 @@
 <h1>Sign Up</h1>
 
 <%= form_for @user do |f| %>
-  <!-- Error messages if user fills in form wrong.. -->
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+
+  <%= render 'errors' %>
+
   <div class="field">
     <%= f.text_field :name, placeholder: "Full Name" %>
   </div>
