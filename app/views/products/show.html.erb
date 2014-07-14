@@ -44,3 +44,15 @@
 
 </div>
 
+<script id="review-template" type="text/x-handlebars-template">
+  <div class="review">
+    <p>
+      {{comment}}
+      <br>
+      {{#if user}}
+        <em> by: {{user.name}}</em>, 
+        Added on: {{created_at}}
+      {{/if}}
+    </p>
+  </div>
+</script>

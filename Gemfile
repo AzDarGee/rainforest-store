@@ -13,6 +13,8 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'kaminari'
 gem 'faker'
 gem 'foundation-rails'
+gem 'handlebars-rails'
+gem 'handlebars_assets'
 
 group :development do
   gem 'guard'

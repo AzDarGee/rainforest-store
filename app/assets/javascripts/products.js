@@ -26,7 +26,7 @@ $(document).ready(function() {
     });
   };
 
-  // Loading Indicator
+  // Loading Indicator on Button
   $(function() {
    $("#new_review")
       .on('ajax:beforeSend', function() { // set this code to happen just before the ajax request is made
@@ -50,6 +50,18 @@ $(document).ready(function() {
       });
     });
 
+  // $('#new_review').submit(function() {
+  //   $.ajax({
+  //     url: $(this).attr('action'),
+  //     type: 'POST',
+  //     dataType: 'json',
+  //     data: $(this).serialize()
+  //   }).done(function(data) {
+  //     var source = $('review-template').html();
+  //     var paragraph = Handlebars.compile(source);
+  //     $('product-reviews').append(template(data));
+  //   });
+  // });
 
 
 });

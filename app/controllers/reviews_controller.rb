@@ -14,9 +14,11 @@ class ReviewsController < ApplicationController
       if @review.save
         format.html { redirect_to products_path, notice: "Review Created!" }
         format.js {} # This will look for app/views/reviews/create.js.erb
+        format.json { render json: @review, include: :user }
       else
         format.html { render 'products/show', alert: 'Review not posted! There was an error' }
         format.js {} # This will look for app/views/reviews/create.js.erb
+        format.json
       end
     end
 
