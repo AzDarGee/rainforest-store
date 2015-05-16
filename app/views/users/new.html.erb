@@ -1,28 +1,44 @@
-<h1>Sign Up</h1>
+<div class="row">
+  <div class="four columns"></div>
+  <div class="four columns">
 
-<%= form_for @user do |f| %>
-  <!-- Error messages if user fills in form wrong.. -->
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
+    <%= form_for @user do |f| %>
+      <fieldset>
+        <legend><h1>Sign Up</h1></legend>
+        <!-- Error messages if user fills in form wrong.. -->
+        <% if @user.errors.any? %>
+          <div class="error_messages">
+            <h2>Form is invalid</h2>
+            <ul>
+              <% for message in @user.errors.full_messages %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.text_field :name, placeholder: "Full Name" %>
+
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name, placeholder: "Full Name" %>
+        </div>
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email, placeholder: "Email" %>
+        </div>
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password, placeholder: "Password" %>
+        </div>
+        <div class="field">
+          <%= f.label :confirm_password %>
+          <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+        </div>
+        <div class="actions"><%= f.submit "Save" %></div>
+      <% end %>
+
+    </fieldset>
+
   </div>
-  <div class="field">
-    <%= f.text_field :email, placeholder: "Email" %>
-  </div>
-  <div class="field">
-    <%= f.password_field :password, placeholder: "Password" %>
-  </div>
-  <div class="field">
-    <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-  </div>
-  <div class="actions"><%= f.submit "Save" %></div>
-<% end %>
+  <div class="four columns"></div>
+</div>
+
