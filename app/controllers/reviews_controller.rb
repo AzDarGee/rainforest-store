@@ -30,12 +30,12 @@ class ReviewsController < ApplicationController
   end
 
   private
-  def load_product
-    @product = Product.find(params[:product_id])
-  end
+    def load_product
+      @product = Product.find(params[:product_id])
+    end
 
-  def review_params
-    params.require(:review).permit(:comment,:product_id)
-  end
+    def review_params
+      params.require(:review).permit(:comment,:product_id)
+    end
 
 end

@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :ensure_logged_in, :only => [:show]
+  before_action :ensure_logged_in, :only => [:show, :create]
+
   def index
     @products = Product.search(params[:search])
     @products = @products.page(params[:page]).order('created_at DESC')
@@ -9,18 +10,22 @@ class ProductsController < ApplicationController
       format.js
     end
   end
+  
   def show
     @product = Product.find(params[:id])
     if current_user
       @review = @product.reviews.build
     end
   end
+  
   def new
     @product = Product.new
   end
+  
   def edit
     @product = Product.find(params[:id])
   end
+  
   def create
     @product = Product.new(product_params)
     if @product.save
@@ -29,6 +34,7 @@ class ProductsController < ApplicationController
       render :new
     end
   end
+  
   def update
     @product = Product.find(params[:id])
     if @product.update_attributes(product_params)
@@ -37,17 +43,21 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
+  
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to products_path
   end
+  
   def search
     @products = Product.search(params[:search])
     render @products
   end
+
   private
-  def product_params
-    params.require(:product).permit(:name,:description,:price_in_cents)
-  end
+    def product_params
+      params.require(:product).permit(:name,:description,:price_in_cents)
+    end
+
 end

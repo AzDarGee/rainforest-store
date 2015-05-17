@@ -14,15 +14,28 @@
   <body>
 
     <%= render :partial => '/layouts/partials/header' %>
-    <br />
-    <% if flash[:notice] %>
-      <div class="alert-box"><%= notice %></div>
-    <% end %>
-      <% if flash[:alert] %>
-        <div class="alert-box success"><%= alert %></div>
-    <% end %>
 
-    <%= yield %>
+    <br />
+
+    <div class="row">
+      <div class="four columns"></div>
+      <div class="four columns">
+        
+        <% if flash[:notice] %>
+          <div class="alert-box"><%= notice %></div>
+        <% end %>
+          <% if flash[:alert] %>
+            <div class="alert-box success"><%= alert %></div>
+        <% end %>
+
+        <%= yield %>
+        
+      </div>
+      <div class="four columns"></div>
+    </div>
+   
+
+    
     <%= javascript_include_tag "application" %>
   </body>
 </html>
