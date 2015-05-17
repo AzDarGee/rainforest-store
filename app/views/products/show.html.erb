@@ -6,16 +6,17 @@
   </div>
 
   <div class="four columns">
-  
-    <h2><%= @product.name %></h2>
-    <h4><%= @product.description %></h4>
-    <h3>$<%= @product.formatted_price %></h3>
+    <div class="panel callout radius">
+      <h2><%= @product.name %></h2>
+      <h4><%= @product.description %></h4>
+      <h3>$<%= @product.formatted_price %></h3>
+    </div>
 
     <hr>
 
     <% if current_user %>
 
-      <div id="review-list" style="background-color: #CEF2FF; border-radius: 15px; padding: 15px;">
+      <div id="review-list" class="panel radius">
         <%= render :partial => 'reviews' %>
       </div>
 
@@ -49,14 +50,14 @@
 </div>
 
 <script id="review-template" type="text/x-handlebars-template">
-  <div class="review">
-    <p>
-      {{comment}}
-      <br>
-      {{#if user}}
-        <em> by: {{user.name}}</em>, 
-        Added on: {{created_at}}
-      {{/if}}
-    </p>
-  </div>
+  // <div class="review">
+  //   <p>
+  //     {{comment}}
+  //     <br>
+  //     {{#if user}}
+  //       <em> by: {{user.name}}</em>, 
+  //       Added on: {{created_at}}
+  //     {{/if}}
+  //   </p>
+  // </div>
 </script>
