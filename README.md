@@ -1,8 +1,8 @@
-# RainForest
+# [RainForest](https://ancient-tor-6631.herokuapp.com/)
 
 An app to carry various business products. This project was used to get familiar with various web2.0 standards such as Ajax, pagination, unlimited scrolling. The framework used for styling was Foundation 5.0.
 
-[Heroku Link](https://ancient-tor-6631.herokuapp.com/)
+[Link](https://ancient-tor-6631.herokuapp.com/)
 
 ![first](https://cloud.githubusercontent.com/assets/4149036/10211750/970b5b58-67c4-11e5-9462-28e0e635ad83.png)
 
